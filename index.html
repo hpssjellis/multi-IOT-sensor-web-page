@@ -3,7 +3,7 @@
   
 
 async function myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4) {
-  
+       alert(myId4)  
      storageName = 'myStore'+ myCell4
    
      myURL = 'https://api.spark.io/v1/devices/'+localStorage.getItem(storageName+myId4)+'/'+localStorage.getItem(storageName+myVar4)+'?access_token='+localStorage.getItem(storageName+myAccess4)
