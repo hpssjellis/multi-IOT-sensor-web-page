@@ -25,7 +25,11 @@ function myCellInfo(myCell){
   document.getElementById('my00').innerHTML   = localStorage.getItem('myStore'+myCell+'DeviceName')
 //  mySave(document.getElementById('myDeviceName').value,document.getElementById('myId').value,document.getElementById('myAccess').value,document.getElementById('myVar').value,document.getElementById('myInterval').value,document.getElementById('myCell').value)                                     
  document.getElementById('myDeviceName').value  = localStorage.getItem('myStore'+myCell+'DeviceName')
- document.getElementById('myId').value  = localStorage.getItem('myStore'+myCell+'Id')
+ document.getElementById('myId').value  = localStorage.getItem('myStore'+myCell+'Id')  
+ document.getElementById('myAccess').value  = localStorage.getItem('myStore'+myCell+'Access')
+ document.getElementById('myVar').value  = localStorage.getItem('myStore'+myCell+'Var')
+ document.getElementById('myInterval').value  = localStorage.getItem('myStore'+myCell+'Interval')
+ document.getElementById('myCell').value  = localStorage.getItem('myStore'+myCell+'Cell')
 
 }
   
