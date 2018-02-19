@@ -7,11 +7,10 @@ async function myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4) 
      storageName = 'myStore'+ myCell4
    
      myURL = 'https://api.spark.io/v1/devices/'+myId4+'/'+myVar4+'?access_token='+myAccess4
-     alert(myURL)  
      myData = await fetch(myURL)
      myBetter = await myData.json()
      document.getElementById(myCell4).innerHTML = myBetter.result + '<br>'
-     myFunctionString = ' myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4)'
+     myFunctionString = ' myGet('+myDevice4+','+myId4+','+ myAccess4+','+ myVar4+','+ myInterval4+','+ myCell4+')'
   
      setTimeout(myFunctionString, myInterval4)
 }
