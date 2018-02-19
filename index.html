@@ -38,13 +38,15 @@ alert()
 Device Name: <input id="myDeviceName" type=text ><br>
 ID: <input id="myId" type=text> 
 <input id="myHide" type=button value="Hide Both" onclick="{
-   if (this.value='Hide Both') {
+   if (this.value=='Hide Both') {
        alert('want hide')
        document.getElementById('myId').type = 'password'
        document.getElementById('myAccess').type = 'password'
+       document.getElementById('myHide').value = 'Show Both'
    } else {
        document.getElementById('myId').type = 'text'
-       document.getElementById('myAccess').type = 'text'
+       document.getElementById('myAccess').type = 'text'      
+       document.getElementById('myHide').value = 'Hide Both'
    }                             
                                        
  }"><br>
