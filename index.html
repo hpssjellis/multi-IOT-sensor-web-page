@@ -7,7 +7,10 @@ function myCellInfo(x){
   
 
 function myLoadLocal(x){
-  alert(x)
+   myLocalA01 = localStorage.getItem('myStoreA01')
+   if(myLocalA01 != null){
+     // document.getElementById('myA01').value = myLocalA01
+   }
 }
   
 function myStaggerActivatePage(x){
@@ -17,7 +20,8 @@ function myStaggerActivatePage(x){
   
 
 function mySave(x){
-  alert(x)
+  //alert(x)
+  localStorage.setItem('myStoreA01Name', document.all.myA01.value)
 }
   
   
