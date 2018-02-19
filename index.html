@@ -10,9 +10,8 @@ async function myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4) 
      myData = await fetch(myURL)
      myBetter = await myData.json()
      document.getElementById(myCell4).innerHTML = myBetter.result + '<br>'
-     myFunctionString = 'myGet('+myDevice4+','+myId4+','+ myAccess4+','+ myVar4+','+ myInterval4+','+ myCell4+')'
-  
-     setTimeout(myFunctionString, myInterval4)
+   
+     setTimeout(function(){ myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4)   }, myInterval4)
 }
 
 
@@ -84,8 +83,9 @@ Table Cell: <input id="myCell" type=text value="myA01" ><br>
  }"><br><br>
 <input type=button value="run get" onclick="{
                                               
-     storageName = 'myStore'+ 'myA01'
- myGet(localStorage.getItem(storageName+'DeviceName'),localStorage.getItem(storageName+'Id'),localStorage.getItem(storageName+'Access'),localStorage.getItem(storageName+'Var'),localStorage.getItem(storageName+'Interval'),localStorage.getItem(storageName+'Cell'))
+ storageName = 'myStore'+ 'myA01'
+// document.myIntA01 = setInterval(
+  myGet(localStorage.getItem(storageName+'DeviceName'),localStorage.getItem(storageName+'Id'),localStorage.getItem(storageName+'Access'),localStorage.getItem(storageName+'Var'),localStorage.getItem(storageName+'Interval'),localStorage.getItem(storageName+'Cell'))
                                             
  }"><br><br>
 
