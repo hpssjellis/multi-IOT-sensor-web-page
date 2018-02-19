@@ -1,0 +1,107 @@
+
+<script>
+  
+async function myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4) {
+     storageName = 'myStore'+ myCell4   
+     myURL = 'https://api.spark.io/v1/devices/'+myId4+'/'+myVar4+'?access_token='+myAccess4
+     myData = await fetch(myURL)
+     myBetter = await myData.json()
+     document.getElementById(myCell4).innerHTML = myBetter.result + '<br>'
+   
+     setTimeout(function(){ myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4)   }, myInterval4)
+}
+
+
+function myCell(myCell){
+  // only use if all device names are the same length. Otherwise your table shifts widths
+  //document.getElementById('my00').innerHTML   = localStorage.getItem('myStore'+myCell+'DeviceName')
+
+}
+  
+
+function myCellInfo(myCell){
+  document.getElementById('my00').innerHTML   = localStorage.getItem('myStore'+myCell+'DeviceName')
+  document.getElementById('myDeviceName').value  = localStorage.getItem('myStore'+myCell+'DeviceName')
+  document.getElementById('myId').value  = localStorage.getItem('myStore'+myCell+'Id')  
+  document.getElementById('myAccess').value  = localStorage.getItem('myStore'+myCell+'Access')
+  document.getElementById('myVar').value  = localStorage.getItem('myStore'+myCell+'Var')
+  document.getElementById('myInterval').value  = localStorage.getItem('myStore'+myCell+'Interval')
+  document.getElementById('myCell').value  = localStorage.getItem('myStore'+myCell+'Cell')
+
+}
+    
+  
+
+function mySave(myDeviceName2, myId2, myAccess2, myVar2, myInterval2, myCell2){
+  storageName = 'myStore'+ myCell2
+  localStorage.setItem(storageName+'DeviceName', myDeviceName2)
+  localStorage.setItem(storageName+'Id', myId2)
+  localStorage.setItem(storageName+'Access', myAccess2)
+  localStorage.setItem(storageName+'Var', myVar2)
+  localStorage.setItem(storageName+'Interval', myInterval2)
+  localStorage.setItem(storageName+'Cell', myCell2)
+}
+  
+    
+</script>
+
+<body onload="{
+              
+    maxRows = 3   
+    for (myLoop=1; myLoop<=maxRows; myLoop++){          
+       myGet(localStorage.getItem('myStore'+ 'myA'+myLoop+'DeviceName'),localStorage.getItem('myStore'+  'myA'+myLoop+'Id'),localStorage.getItem('myStore'+ 'myA'+myLoop+'Access'),localStorage.getItem('myStore'+ 'myA'+myLoop+'Var'),localStorage.getItem('myStore'+ 'myA'+myLoop+'Interval'),localStorage.getItem('myStore'+ 'myA'+myLoop+'Cell'))
+       myGet(localStorage.getItem('myStore'+ 'myB'+myLoop+'DeviceName'),localStorage.getItem('myStore'+  'myB'+myLoop+'Id'),localStorage.getItem('myStore'+ 'myB'+myLoop+'Access'),localStorage.getItem('myStore'+ 'myB'+myLoop+'Var'),localStorage.getItem('myStore'+ 'myB'+myLoop+'Interval'),localStorage.getItem('myStore'+ 'myB'+myLoop+'Cell'))
+       myGet(localStorage.getItem('myStore'+ 'myC'+myLoop+'DeviceName'),localStorage.getItem('myStore'+  'myC'+myLoop+'Id'),localStorage.getItem('myStore'+ 'myC'+myLoop+'Access'),localStorage.getItem('myStore'+ 'myC'+myLoop+'Var'),localStorage.getItem('myStore'+ 'myC'+myLoop+'Interval'),localStorage.getItem('myStore'+ 'myC'+myLoop+'Cell'))             
+    }
+
+}">
+    <h3 align=center>multi-IOT-sensor-web-page</h3>
+  Github at <a href="https://hpssjellis.github.io/multi-IOT-sensor-web-page/">https://hpssjellis.github.io/multi-IOT-sensor-web-page</a><br><br>
+  Enter ID and Assess Token for multiple particle.io products. Changing the Cell location as needed. Click on any cell to re-show the information
+  
+  
+  <br><br>
+
+
+Device Name: <input id="myDeviceName" type=text placeholder="DeviceName"><br>
+ID: <input id="myId" type=text size=50 placeholder="a78778d87877c78"> 
+<input id="myHide" type=button value="Hide Both" onclick="{
+   if (document.getElementById('myHide').value == 'Hide Both') {
+       document.getElementById('myId').type = 'password'
+       document.getElementById('myAccess').type = 'password'
+       document.getElementById('myHide').value = 'Show Both'
+   } else {
+       document.getElementById('myId').type = 'text'
+       document.getElementById('myAccess').type = 'text'      
+       document.getElementById('myHide').value = 'Hide Both'
+   }                             
+                                       
+ }"><br>
+Access Token: <input id="myAccess" type=text size=70 placeholder="a9393d934576f22929b5885858c383993"><br>
+Variable: <input id="myVar" type=text value=passDouble ><br>
+Interval(ms): <input id="myInterval" type=text value=5000 ><br>
+Table Cell: <input id="myCell" type=text value="myA1" ><br>
+<input type=button value=save onclick="{
+   mySave(document.getElementById('myDeviceName').value,document.getElementById('myId').value,document.getElementById('myAccess').value,document.getElementById('myVar').value,document.getElementById('myInterval').value,document.getElementById('myCell').value)                                     
+                                       
+ }"><br><br>
+
+
+
+<table border=1>
+<tr><th id="my00"></th>  <th>A</th> <th>B</th> <th>C</th> </tr>
+
+<tr><th>01</th><td id="myA1"  onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}"  >...</td>  <td id="myB1"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}" >...</td> <td id="myC1"  onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}"  >...</td> </tr>
+<tr><th>02</th><td id="myA2"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}" >...</td>  <td id="myB2"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}"  >...</td> <td id="myC2"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}"  >...</td> </tr>
+<tr><th>03</th><td id="myA3"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}"  >...</td>  <td id="myB3"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}" >...</td> <td id="myC3"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}"  >...</td> </tr>
+  
+</table>
+
+
+  
+  
+  
+  
+  
+  
+  
