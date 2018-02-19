@@ -6,11 +6,13 @@ function myCellInfo(x){
 }
   
 
-function myLoadLocal(x){
-   myLocalA01 = localStorage.getItem('myStoreA01')
-   if(myLocalA01 != null){
+function myLoadLocal(myCell3){
+  
+  storageName = 'myStore'+ myCell3
+  storageName+'DeviceName' = localStorage.getItem(storageName+'DeviceName')
+  // if(myLocalA01 != null){
      // document.getElementById('myA01').value = myLocalA01
-   }
+  // }
 }
   
 function myStaggerActivatePage(x){
@@ -19,9 +21,14 @@ function myStaggerActivatePage(x){
   
   
 
-function mySave(myRowCol){
-  //alert(x)
-  localStorage.setItem('myStoreA01Name', document.all.[myRowCol].value)
+function mySave(myDeviceName2,myId2,MyAccess2,myVar2,myInterval2,myCell2){
+  storageName = 'myStore'+ myCell2
+  localStorage.setItem(storageName+'DeviceName', myDeviceName2)
+  localStorage.setItem(storageName+'Id', myId2)
+  localStorage.setItem(storageName+'Access', myAccess2)
+  localStorage.setItem(storageName+'Var', myVar2)
+  localStorage.setItem(storageName+'Interval', myInterval2)
+  localStorage.setItem(storageName+'Cell', myCell2)
 }
   
   
@@ -54,7 +61,7 @@ Variable: <input id="myVar" type=text value=passDouble ><br>
 Interval: <input id="myInterval" type=text value=5000 ><br>
 Table Cell: <input id="myCell" type=text value="myA01" ><br>
 <input type=button value=save onclick="{
-   mySave(document.getElementById('myCell').value)                                     
+   mySave(document.getElementById('myDeviceName').value,document.getElementById('myId').value,document.getElementById('myAccess').value,document.getElementById('myVar').value,document.getElementById('myInterval').value,document.getElementById('myCell').value)                                     
                                        
  }"><br><br>
 
