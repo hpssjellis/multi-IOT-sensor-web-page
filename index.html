@@ -84,8 +84,8 @@ Table Cell: <input id="myCell" type=text value="myA01" ><br>
     document.getElementById('myA01').innerHTML = 'device '+ localStorage.getItem(storageName+'DeviceName')                                 
  }"><br><br>
 <input type=button value="run get" onclick="{
- myGet(document.getElementById('myDeviceName').value,document.getElementById('myId').value,document.getElementById('myAccess').value,document.getElementById('myVar').value,document.getElementById('myInterval').value,document.getElementById('myCell').value)                                     
-                   
+ myGet(localStorage.getItem(storageName+'DeviceName'),localStorage.getItem(storageName+'myId'),localStorage.getItem(storageName+myAccess),localStorage.getItem(storageName+'myVar'),localStorage.getItem(storageName+'myInterval'),localStorage.getItem(storageName+'myCell'))
+                                            
  }"><br><br>
 
 
