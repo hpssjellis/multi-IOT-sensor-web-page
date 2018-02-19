@@ -11,7 +11,9 @@ async function myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4) 
      myData = await fetch(myURL)
      myBetter = await myData.json()
      document.getElementById(myCell4).innerHTML = myBetter.result + '<br>'
-     setTimeout('myGet('+myId4, myVar4, myAccess4, myInterval4, myCell4+')', myInterval4)
+     myFunctionString = ' myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4)'
+  
+     setTimeout(myFunctionString, myInterval4)
 }
 
 
