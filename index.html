@@ -1,11 +1,8 @@
 
 <script>
   
-
 async function myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4) {
-
-     storageName = 'myStore'+ myCell4
-   
+     storageName = 'myStore'+ myCell4   
      myURL = 'https://api.spark.io/v1/devices/'+myId4+'/'+myVar4+'?access_token='+myAccess4
      myData = await fetch(myURL)
      myBetter = await myData.json()
@@ -15,30 +12,23 @@ async function myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4) 
 }
 
 
+function myCell(myCell){
+  document.getElementById('my00').innerHTML   = localStorage.getItem('myStore'+myCell+'DeviceName')
 
-  
-  
-  
+}
   
 
 function myCellInfo(myCell){
   document.getElementById('my00').innerHTML   = localStorage.getItem('myStore'+myCell+'DeviceName')
-//  mySave(document.getElementById('myDeviceName').value,document.getElementById('myId').value,document.getElementById('myAccess').value,document.getElementById('myVar').value,document.getElementById('myInterval').value,document.getElementById('myCell').value)                                     
- document.getElementById('myDeviceName').value  = localStorage.getItem('myStore'+myCell+'DeviceName')
- document.getElementById('myId').value  = localStorage.getItem('myStore'+myCell+'Id')  
- document.getElementById('myAccess').value  = localStorage.getItem('myStore'+myCell+'Access')
- document.getElementById('myVar').value  = localStorage.getItem('myStore'+myCell+'Var')
- document.getElementById('myInterval').value  = localStorage.getItem('myStore'+myCell+'Interval')
- document.getElementById('myCell').value  = localStorage.getItem('myStore'+myCell+'Cell')
+  document.getElementById('myDeviceName').value  = localStorage.getItem('myStore'+myCell+'DeviceName')
+  document.getElementById('myId').value  = localStorage.getItem('myStore'+myCell+'Id')  
+  document.getElementById('myAccess').value  = localStorage.getItem('myStore'+myCell+'Access')
+  document.getElementById('myVar').value  = localStorage.getItem('myStore'+myCell+'Var')
+  document.getElementById('myInterval').value  = localStorage.getItem('myStore'+myCell+'Interval')
+  document.getElementById('myCell').value  = localStorage.getItem('myStore'+myCell+'Cell')
 
 }
-  
-
-  
-function myStaggerActivatePage(x){
-  alert(x)
-}
-  
+    
   
 
 function mySave(myDeviceName2, myId2, myAccess2, myVar2, myInterval2, myCell2){
@@ -51,8 +41,7 @@ function mySave(myDeviceName2, myId2, myAccess2, myVar2, myInterval2, myCell2){
   localStorage.setItem(storageName+'Cell', myCell2)
 }
   
-  
-  
+    
 </script>
 
 <body onload="{
@@ -97,9 +86,9 @@ Table Cell: <input id="myCell" type=text value="myA01" ><br>
 <table border=1>
 <tr><th id="my00"></th>  <th>A</th> <th>B</th> <th>C</th> </tr>
 
-<tr><th>01</th><td id="myA01"  onMouseOver="{myCellInfo(this.id)}"  >...</td>  <td id="myB01" onMouseOver="{myCellInfo(this.id)}" >...</td> <td id="myC01" onMouseOver="{myCellInfo(this.id)}" >...</td> </tr>
-<tr><th>02</th><td id="myA02" onMouseOver="{myCellInfo(this.id)}" >...</td>  <td id="myB02" onMouseOver="{myCellInfo(this.id)}" >...</td> <td id="myC02" onMouseOver="{myCellInfo(this.id)}" >...</td> </tr>
-<tr><th>03</th><td id="myA03" onMouseOver="{myCellInfo(this.id)}" >...</td>  <td id="myB03" onMouseOver="{myCellInfo(this.id)}" >...</td> <td id="myC03" onMouseOver="{myCellInfo(this.id)}" >...</td> </tr>
+<tr><th>01</th><td id="myA01"  onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}"  >...</td>  <td id="myB01"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}" >...</td> <td id="myC01"  onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}"  >...</td> </tr>
+<tr><th>02</th><td id="myA02"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}" >...</td>  <td id="myB02"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}"  >...</td> <td id="myC02"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}"  >...</td> </tr>
+<tr><th>03</th><td id="myA03"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}"  >...</td>  <td id="myB03"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}" >...</td> <td id="myC03"   onMouseOver="{myCell(this.id)}" onClick="{myCellInfo(this.id)}"  >...</td> </tr>
   
 </table>
 
