@@ -1,5 +1,22 @@
 
 <script>
+  
+
+async function myGet(myDevice4, myId4, myVar4, myAccess4, myInterval4, myCell4) {
+     myURL = 'https://api.spark.io/v1/devices/'+myId4+'/'+myVar4+'?access_token='+myAccess4
+     myData = await fetch('https://api.spark.io/v1/devices/1111111111111/passDouble?access_token=2222222222222222')
+     myBetter = await myData.json()
+     document.getElementById(myCell4).innerHTML = myBetter.result + '<br>'
+     setTimeout('myGet(myId4, myVar4, myAccess4, myInterval4, myCell4)', myInterval4)
+}
+
+</script>
+
+
+  
+  
+  
+  
 
 function myCellInfo(x){
   alert(x)
@@ -73,6 +90,10 @@ Table Cell: <input id="myCell" type=text value="myA01" ><br>
    storageName = 'myStore'+ 'myA01'
    
     document.getElementById('myA01').innerHTML = 'device '+storageName['DeviceName']                                 
+ }"><br><br>
+<input type=button value="run get" onclick="{
+ myGet(document.getElementById('myDeviceName').value,document.getElementById('myId').value,document.getElementById('myAccess').value,document.getElementById('myVar').value,document.getElementById('myInterval').value,document.getElementById('myCell').value)                                     
+                   
  }"><br><br>
 
 
