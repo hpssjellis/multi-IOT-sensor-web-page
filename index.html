@@ -25,6 +25,9 @@ function myCellInfo(x){
 function myLoadLocal(myCell3){
   
   storageName = 'myStore'+ myCell3
+  
+  storageName = new Array()
+  
   storageName['DeviceName'] = localStorage.getItem(storageName+'DeviceName')
 alert(storageName['DeviceName'])
   storageName['Id'] = localStorage.getItem(storageName+'Id')
