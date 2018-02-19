@@ -21,8 +21,8 @@ async function myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4) 
   
   
 
-function myCellInfo(x){
-  alert(x)
+function myCellInfo(myCell){
+  document.getElementById('my00').innerHTML   = 'wow'
 }
   
 
@@ -53,10 +53,7 @@ function mySave(myDeviceName2,myId2,myAccess2,myVar2,myInterval2,myCell2){
     for (myLoop=1; myLoop<=maxRows; myLoop++){          
        myGet(localStorage.getItem('myStore'+ 'myA0'+myLoop+'DeviceName'),localStorage.getItem('myStore'+  'myA0'+myLoop+'Id'),localStorage.getItem('myStore'+ 'myA0'+myLoop+'Access'),localStorage.getItem('myStore'+ 'myA0'+myLoop+'Var'),localStorage.getItem('myStore'+ 'myA0'+myLoop+'Interval'),localStorage.getItem('myStore'+ 'myA0'+myLoop+'Cell'))
        myGet(localStorage.getItem('myStore'+ 'myB0'+myLoop+'DeviceName'),localStorage.getItem('myStore'+  'myB0'+myLoop+'Id'),localStorage.getItem('myStore'+ 'myB0'+myLoop+'Access'),localStorage.getItem('myStore'+ 'myB0'+myLoop+'Var'),localStorage.getItem('myStore'+ 'myB0'+myLoop+'Interval'),localStorage.getItem('myStore'+ 'myB0'+myLoop+'Cell'))
-      // myGet(localStorage.getItem('myStore'+ 'myC0'+myLoop+'DeviceName'),localStorage.getItem('myStore'+  'myC0'+myLoop+'Id'),localStorage.getItem('myStore'+ 'myC0'+myLoop+'Access'),localStorage.getItem('myStore'+ 'myC0'+myLoop+'Var'),localStorage.getItem('myStore'+ 'myC0'+myLoop+'Interval'),localStorage.getItem('myStore'+ 'myAC0'+myLoop+'Cell'))
-  myGet(localStorage.getItem('myStore'+ 'myC0'+myLoop+'DeviceName'),localStorage.getItem('myStore'+  'myC0'+myLoop+'Id'),localStorage.getItem('myStore'+ 'myC0'+myLoop+'Access'),localStorage.getItem('myStore'+ 'myC0'+myLoop+'Var'),localStorage.getItem('myStore'+ 'myC0'+myLoop+'Interval'),localStorage.getItem('myStore'+ 'myC0'+myLoop+'Cell'))
-     
-              
+       myGet(localStorage.getItem('myStore'+ 'myC0'+myLoop+'DeviceName'),localStorage.getItem('myStore'+  'myC0'+myLoop+'Id'),localStorage.getItem('myStore'+ 'myC0'+myLoop+'Access'),localStorage.getItem('myStore'+ 'myC0'+myLoop+'Var'),localStorage.getItem('myStore'+ 'myC0'+myLoop+'Interval'),localStorage.getItem('myStore'+ 'myC0'+myLoop+'Cell'))             
     }
 
 }">
@@ -103,7 +100,7 @@ Table Cell: <input id="myCell" type=text value="myA01" ><br>
 <table border=1>
 <tr><th></th>  <th>A</th> <th>B</th> <th>C</th> </tr>
 
-<tr><th>01</th><td id="myA01"  onclick="{myCellInfo(this.id)}"  >...</td>  <td id="myB01">...</td> <td id="myC01">...</td> </tr>
+<tr><th>01</th><td id="myA01"  onMouseOver="{myCellInfo(this.id)}"  >...</td>  <td id="myB01">...</td> <td id="myC01">...</td> </tr>
 <tr><th>02</th><td id="myA02">...</td>  <td id="myB02">...</td> <td id="myC02">...</td> </tr>
 <tr><th>03</th><td id="myA03">...</td>  <td id="myB03">...</td> <td id="myC03">...</td> </tr>
   
