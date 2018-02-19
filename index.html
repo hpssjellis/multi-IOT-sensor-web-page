@@ -19,9 +19,9 @@ function myStaggerActivatePage(x){
   
   
 
-function mySave(x){
+function mySave(myRowCol){
   //alert(x)
-  localStorage.setItem('myStoreA01Name', document.all.myA01.value)
+  localStorage.setItem('myStoreA01Name', document.all.[myRowCol].value)
 }
   
   
