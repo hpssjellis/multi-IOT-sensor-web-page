@@ -23,6 +23,10 @@ async function myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4) 
 
 function myCellInfo(myCell){
   document.getElementById('my00').innerHTML   = localStorage.getItem('myStore'+myCell+'DeviceName')
+//  mySave(document.getElementById('myDeviceName').value,document.getElementById('myId').value,document.getElementById('myAccess').value,document.getElementById('myVar').value,document.getElementById('myInterval').value,document.getElementById('myCell').value)                                     
+ document.getElementById('myDeviceName').value  = localStorage.getItem('myStore'+myCell+'DeviceName')
+ document.getElementById('myId').value  = localStorage.getItem('myStore'+myCell+'Id')
+
 }
   
 
@@ -33,7 +37,7 @@ function myStaggerActivatePage(x){
   
   
 
-function mySave(myDeviceName2,myId2,myAccess2,myVar2,myInterval2,myCell2){
+function mySave(myDeviceName2, myId2, myAccess2, myVar2, myInterval2, myCell2){
   storageName = 'myStore'+ myCell2
   localStorage.setItem(storageName+'DeviceName', myDeviceName2)
   localStorage.setItem(storageName+'Id', myId2)
@@ -83,18 +87,7 @@ Table Cell: <input id="myCell" type=text value="myA01" ><br>
    mySave(document.getElementById('myDeviceName').value,document.getElementById('myId').value,document.getElementById('myAccess').value,document.getElementById('myVar').value,document.getElementById('myInterval').value,document.getElementById('myCell').value)                                     
                                        
  }"><br><br>
-<input type=button value="show memory" onclick="{
-   storageName = 'myStore'+ 'myC01'
-   
-    document.getElementById('myA01').innerHTML = 'device '+ localStorage.getItem(storageName+'DeviceName')                                 
- }"><br><br>
-<input type=button value="run get" onclick="{
-                                              
- storageName = 'myStore'+ 'myC03'
 
-  myGet(localStorage.getItem(storageName+'DeviceName'),localStorage.getItem(storageName+'Id'),localStorage.getItem(storageName+'Access'),localStorage.getItem(storageName+'Var'),localStorage.getItem(storageName+'Interval'),localStorage.getItem(storageName+'Cell'))
-                                            
- }"><br><br>
 
 
 <table border=1>
