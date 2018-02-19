@@ -1,10 +1,18 @@
 
 <script>
 
-function myUpdate(x){
+function myCellInfo(x){
+  alert(x)
+}
+  
+
+function myLoadLocal(x){
   alert(x)
 }
 
+function mySave(x){
+  alert(x)
+}
 </script>
 
 <body onload="{
@@ -17,19 +25,17 @@ ID<input id="myId" type=text ><br>
 Access<input id="myAccess" type=text size=70 ><br>
 Var<input id="myVar" type=text value=passDouble ><br>
 Interval<input id="myInterval" type=text value=5000 ><br>
-Cell<input id="myInterval" type=text value="myA01" ><br>
+Cell<input id="myCell" type=text value="myA01" ><br>
 <input type=button value=save onclick="{
-   myUpdate(document.getElementById('myInterval').value)                                     
+   mySave(document.getElementById('myCell').value)                                     
                                        
  }">
-<input  type=text >
-<input  type=text >
 
 
 
 <table border=1>
   
-<tr><td id="myA01"  onclick="{myUpdate(this.id)}"  >...</td>  <td id="myB01">...</td> <td id="myC01">...</td> </tr>
+<tr><td id="myA01"  onclick="{myCellInfo(this.id)}"  >...</td>  <td id="myB01">...</td> <td id="myC01">...</td> </tr>
 <tr><td id="myA02">...</td>  <td id="myB02">...</td> <td id="myC02">...</td> </tr>
 <tr><td id="myA03">...</td>  <td id="myB03">...</td> <td id="myC03">...</td> </tr>
   
