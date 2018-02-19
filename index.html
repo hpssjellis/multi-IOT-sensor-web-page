@@ -4,7 +4,7 @@
 
 async function myGet(myDevice4, myId4, myVar4, myAccess4, myInterval4, myCell4) {
      myURL = 'https://api.spark.io/v1/devices/'+myId4+'/'+myVar4+'?access_token='+myAccess4
-     myData = await fetch('https://api.spark.io/v1/devices/1111111111111/passDouble?access_token=2222222222222222')
+     myData = await fetch(myURL)
      myBetter = await myData.json()
      document.getElementById(myCell4).innerHTML = myBetter.result + '<br>'
      setTimeout('myGet(myId4, myVar4, myAccess4, myInterval4, myCell4)', myInterval4)
@@ -22,23 +22,6 @@ function myCellInfo(x){
 }
   
 
-function myLoadLocal(myCell3){
-  
-  storageName = 'myStore'+ myCell3
-  
-  storageName = new Array()
-  
-  storageName['DeviceName'] = localStorage.getItem(storageName+'DeviceName')
-//alert(storageName['DeviceName'])
-  storageName['Id'] = localStorage.getItem(storageName+'Id')
-  storageName['Access'] = localStorage.getItem(storageName+'Access')
-  storageName['Var'] = localStorage.getItem(storageName+'Var')
-  storageName['Interval'] = localStorage.getItem(storageName+'Interval')
-  storageName['Cell'] = localStorage.getItem(storageName+'Cell')
-  // if(myLocalA01 != null){
-     // document.getElementById('myA01').value = myLocalA01
-  // }
-}
   
 function myStaggerActivatePage(x){
   alert(x)
