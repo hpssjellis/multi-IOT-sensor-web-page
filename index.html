@@ -92,7 +92,7 @@ Table Cell: <input id="myCell" type=text value="myA01" ><br>
 <input type=button value="show memory" onclick="{
    storageName = 'myStore'+ 'myA01'
    
-    document.getElementById('myA01').innerHTML = 'device '+storageName['DeviceName']                                 
+    document.getElementById('myA01').innerHTML = 'device '+ localStorage.getItem(storageName+'DeviceName')                                 
  }"><br><br>
 <input type=button value="run get" onclick="{
  myGet(document.getElementById('myDeviceName').value,document.getElementById('myId').value,document.getElementById('myAccess').value,document.getElementById('myVar').value,document.getElementById('myInterval').value,document.getElementById('myCell').value)                                     
