@@ -1,0 +1,114 @@
+
+<script>
+  
+
+async function myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4) {
+
+     storageName = 'myStore'+ myCell4
+   
+     myURL = 'https://api.spark.io/v1/devices/'+myId4+'/'+myVar4+'?access_token='+myAccess4
+     myData = await fetch(myURL)
+     myBetter = await myData.json()
+     document.getElementById(myCell4).innerHTML = myBetter.result + '<br>'
+   
+     setTimeout(function(){ myGet(myDevice4, myId4, myAccess4, myVar4, myInterval4, myCell4)   }, myInterval4)
+}
+
+
+
+  
+  
+  
+  
+
+function myCellInfo(x){
+  alert(x)
+}
+  
+
+  
+function myStaggerActivatePage(x){
+  alert(x)
+}
+  
+  
+
+function mySave(myDeviceName2,myId2,myAccess2,myVar2,myInterval2,myCell2){
+  storageName = 'myStore'+ myCell2
+  localStorage.setItem(storageName+'DeviceName', myDeviceName2)
+  localStorage.setItem(storageName+'Id', myId2)
+  localStorage.setItem(storageName+'Access', myAccess2)
+  localStorage.setItem(storageName+'Var', myVar2)
+  localStorage.setItem(storageName+'Interval', myInterval2)
+  localStorage.setItem(storageName+'Cell', myCell2)
+}
+  
+  
+  
+</script>
+
+<body onload="{
+              
+    maxRows = 3   // not bigger than 9 without better coding
+    for (myLoop=1; myLoop<=maxRows; myLoop++){          
+       myGet(localStorage.getItem('myStore'+ 'myA0'+myLoop+'DeviceName'),localStorage.getItem('myStore'+  'myA0'+myLoop+'Id'),localStorage.getItem('myStore'+ 'myA0'+myLoop+'Access'),localStorage.getItem('myStore'+ 'myA0'+myLoop+'Var'),localStorage.getItem('myStore'+ 'myA0'+myLoop+'Interval'),localStorage.getItem('myStore'+ 'myA0'+myLoop+'Cell'))
+    }
+
+}">
+    <h3 align=center>multi-IOT-sensor-web-page</h3>
+  Github at <a href="https://hpssjellis.github.io/multi-IOT-sensor-web-page/">https://hpssjellis.github.io/multi-IOT-sensor-web-page</a><br><br>
+
+
+Device Name: <input id="myDeviceName" type=text placeholder="DeviceName"><br>
+ID: <input id="myId" type=text size=50 placeholder="DSD8F878798989"> 
+<input id="myHide" type=button value="Hide Both" onclick="{
+   if (document.getElementById('myHide').value == 'Hide Both') {
+       document.getElementById('myId').type = 'password'
+       document.getElementById('myAccess').type = 'password'
+       document.getElementById('myHide').value = 'Show Both'
+   } else {
+       document.getElementById('myId').type = 'text'
+       document.getElementById('myAccess').type = 'text'      
+       document.getElementById('myHide').value = 'Hide Both'
+   }                             
+                                       
+ }"><br>
+AccessCode: <input id="myAccess" type=text size=70 placeholder="SDFG88DSF98SD8FS98D7FG8SDG898SDF888D98SDFG8SDG"><br>
+Variable: <input id="myVar" type=text value=passDouble ><br>
+Interval: <input id="myInterval" type=text value=5000 ><br>
+Table Cell: <input id="myCell" type=text value="myA01" ><br>
+<input type=button value=save onclick="{
+   mySave(document.getElementById('myDeviceName').value,document.getElementById('myId').value,document.getElementById('myAccess').value,document.getElementById('myVar').value,document.getElementById('myInterval').value,document.getElementById('myCell').value)                                     
+                                       
+ }"><br><br>
+<input type=button value="show memory" onclick="{
+   storageName = 'myStore'+ 'myA01'
+   
+    document.getElementById('myA01').innerHTML = 'device '+ localStorage.getItem(storageName+'DeviceName')                                 
+ }"><br><br>
+<input type=button value="run get" onclick="{
+                                              
+ storageName = 'myStore'+ 'myA01'
+// document.myIntA01 = setInterval(
+  myGet(localStorage.getItem(storageName+'DeviceName'),localStorage.getItem(storageName+'Id'),localStorage.getItem(storageName+'Access'),localStorage.getItem(storageName+'Var'),localStorage.getItem(storageName+'Interval'),localStorage.getItem(storageName+'Cell'))
+                                            
+ }"><br><br>
+
+
+<table border=1>
+<tr><th></th>  <th>A</th> <th>B</th> <th>C</th> </tr>
+
+<tr><th>01</th><td id="myA01"  onclick="{myCellInfo(this.id)}"  >...</td>  <td id="myB01">...</td> <td id="myC01">...</td> </tr>
+<tr><th>02</th><td id="myA02">...</td>  <td id="myB02">...</td> <td id="myC02">...</td> </tr>
+<tr><th>03</th><td id="myA03">...</td>  <td id="myB03">...</td> <td id="myC03">...</td> </tr>
+  
+</table>
+
+
+  
+  
+  
+  
+  
+  
+  
