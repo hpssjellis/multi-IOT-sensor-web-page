@@ -86,13 +86,13 @@ Table Cell: <input id="myCell" type=text value="myA01" ><br>
                                        
  }"><br><br>
 <input type=button value="show memory" onclick="{
-   storageName = 'myStore'+ 'myA01'
+   storageName = 'myStore'+ 'myC01'
    
     document.getElementById('myA01').innerHTML = 'device '+ localStorage.getItem(storageName+'DeviceName')                                 
  }"><br><br>
 <input type=button value="run get" onclick="{
                                               
- storageName = 'myStore'+ 'myB01'
+ storageName = 'myStore'+ 'myC03'
 
   myGet(localStorage.getItem(storageName+'DeviceName'),localStorage.getItem(storageName+'Id'),localStorage.getItem(storageName+'Access'),localStorage.getItem(storageName+'Var'),localStorage.getItem(storageName+'Interval'),localStorage.getItem(storageName+'Cell'))
                                             
