@@ -48,9 +48,11 @@ function mySave(myDeviceName2,myId2,myAccess2,myVar2,myInterval2,myCell2){
 </script>
 
 <body onload="{
-    myGet(localStorage.getItem('myStore'+ 'myA01'+'DeviceName'),localStorage.getItem('myStore'+ 'myA01'+'Id'),localStorage.getItem('myStore'+ 'myA01'+'Access'),localStorage.getItem('myStore'+ 'myA01'+'Var'),localStorage.getItem('myStore'+ 'myA01'+'Interval'),localStorage.getItem('myStore'+ 'myA01'+'Cell'))
-  myGet(localStorage.getItem('myStore'+ 'myA1'+'DeviceName'),localStorage.getItem('myStore'+ 'myA1'+'Id'),localStorage.getItem('myStore'+ 'myA01'+'Access'),localStorage.getItem('myStore'+ 'myA01'+'Var'),localStorage.getItem('myStore'+ 'myA01'+'Interval'),localStorage.getItem('myStore'+ 'myA01'+'Cell'))
- 
+              
+    maxRows = 3   // not bigger than 9 without better coding
+    for (myLoop=1; myLoop<=maxRows; myLoop++){          
+       myGet(localStorage.getItem('myStore'+ 'myA0'+myLoop+'DeviceName'),localStorage.getItem('myStore'+  'myA0'+myLoop+'Id'),localStorage.getItem('myStore'+ 'myA0'+myLoop+'Access'),localStorage.getItem('myStore'+ 'myA0'+myLoop+'Var'),localStorage.getItem('myStore'+ 'myA0'+myLoop+'Interval'),localStorage.getItem('myStore'+ 'myA0'+myLoop+'Cell'))
+    }
 
 }">
     <h3 align=center>multi-IOT-sensor-web-page</h3>
