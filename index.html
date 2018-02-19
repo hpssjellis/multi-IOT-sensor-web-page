@@ -9,7 +9,12 @@ function myCellInfo(x){
 function myLoadLocal(myCell3){
   
   storageName = 'myStore'+ myCell3
-  storageName+'DeviceName' = localStorage.getItem(storageName+'DeviceName')
+  storageName['DeviceName'] = localStorage.getItem(storageName+'DeviceName')
+  storageName['Id'] = localStorage.getItem(storageName+'Id')
+  storageName['Access'] = localStorage.getItem(storageName+'Access')
+  storageName['Var'] = localStorage.getItem(storageName+'Var')
+  storageName['Interval'] = localStorage.getItem(storageName+'Interval')
+  storageName['Cell'] = localStorage.getItem(storageName+'Cell')
   // if(myLocalA01 != null){
      // document.getElementById('myA01').value = myLocalA01
   // }
